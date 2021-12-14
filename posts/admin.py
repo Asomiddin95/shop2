@@ -23,4 +23,4 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ['title', 'author', 'created_at']
     list_filter = ['author', 'tags', 'created_at']
     search_fields = ['title']
-    autocomplete_fields = ['author','tags']  # 2 ulangan polya  korinish o'zgaradi
+    autocomplete_fields = ['author', 'tags']  # 2 ulangan polya  korinish o'zgaradi

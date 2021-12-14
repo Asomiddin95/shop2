@@ -35,4 +35,4 @@ class ProductModelAdmin(admin.ModelAdmin):
     list_display = ['title', 'price', 'discount', 'short_description', 'created_at']
     list_filter = ['tags', 'brand', 'category', 'created_at']
     search_fields = ['title', 'short_description']
-    # autocomplete_fields = ['category', 'tags', 'brand']
+    autocomplete_fields = ['category', 'tags', 'brand']
