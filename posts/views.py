@@ -9,6 +9,7 @@ from posts.models import PostModel
 class PostListView(ListView):
     queryset = PostModel.objects.order_by('-pk')  # oxirgi-post-birinchi-chiqish-uchun
     template_name = 'blog.html'
+    paginate_by = 3
 
 
 class PostDetailView(DetailView):
