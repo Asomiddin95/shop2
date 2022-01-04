@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView,DetailView
+from django.views.generic import ListView, TemplateView
 from .models import ProductModel, CategoryModel, BrandModel, ProductTagModel
 
 
@@ -37,6 +37,5 @@ class ProductListView(ListView):
         return context
 
 
-class ProductDetailView(DetailView):
+class ProductDetailView(TemplateView):
     template_name = 'shop-details.html'
-    model = ProductModel

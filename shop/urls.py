@@ -5,6 +5,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('accounts/', include('registration.backends.default.urls')),
     path('admin/', admin.site.urls),
     path('blog/', include('posts.urls', namespace='posts')),
     path('', include('pages.urls', namespace='pages')),  # namespace bu pages-urls-ichida-yoziladi

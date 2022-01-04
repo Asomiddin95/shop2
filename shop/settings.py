@@ -29,6 +29,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'registration',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -141,3 +142,5 @@ CKEDITOR_CONFIGS = {
         'toolbar': 'full',
     },
 }
+
+ACCOUNT_ACTIVATION_DAYS = 7
