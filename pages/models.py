@@ -13,6 +13,7 @@ class ContactModel(models.Model):
     def __str__(self):
         return self.name
 
+
     class Meta:
         verbose_name = 'contact'
         verbose_name_plural = 'contacts'

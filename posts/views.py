@@ -7,9 +7,15 @@ from posts.models import PostModel
 
 
 class PostListView(ListView):
-    queryset = PostModel.objects.order_by('-pk')  # oxirgi-post-birinchi-chiqish-uchun
     template_name = 'blog.html'
     paginate_by = 3
+
+    def get_queryset(self):
+        qs = PostModel.objects.order_by('-pk')
+        tag = self.request.GET.get('tag')
+        if qs:
+            qs = qs.filter(tags__title=tag)
+        return qs
 
 
 class PostDetailView(DetailView):

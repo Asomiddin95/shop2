@@ -4,6 +4,9 @@
                                 <input value="{{ request.GET.q }}" name="q" type="text" placeholder="Search...">
                                 <button type="submit"><span class="icon_search"></span></button>
                             </form>
+                        <div class="my-2">
+                            <a href="{% url 'product:lists' %}" class="text-dark">Clear filters</a>
+                        </div>
                         </div>
                         <div class="shop__sidebar__accordion">
                             <div class="accordion" id="accordionExample">
@@ -17,7 +20,7 @@
                                                 <ul class="nice-scroll">
                                                     {% for category in categories %}
                                                         <li>
-                                                            <a {% if request.GET.cat == category.pk|stringformat:'i' %} style="color: #111111"{% endif %} href="?cat={{ category.pk }}">{{ category.title }}</a>
+                                                            <a {% if request.GET.category == category.pk|stringformat:'i' %} style="color: #111111" {% endif %} onclick="Parameter('category', '{{ category.pk }}')">{{ category.title }}</a>
                                                         </li>
                                                     {% endfor %}
                                                 </ul>
@@ -35,7 +38,7 @@
                                                 <ul>
                                                     {% for brand in brands %}
                                                         <li>
-                                                            <a {% if request.GET.brand == brand.pk|stringformat:'i' %} style="color: #111111"{% endif %} href="?brand={{ brand.pk }}">{{ brand.title }}</a>
+                                                            <a {% if request.GET.brand == brand.pk|stringformat:'i' %} style="color: #111111"{% endif %} onclick="Parameter('brand','{{ brand.pk }}')">{{ brand.title }}</a>
                                                         </li>
                                                     {% endfor %}
                                                 </ul>
@@ -51,7 +54,7 @@
                                         <div class="card-body">
                                             <div class="shop__sidebar__tags">
                                                 {% for tag in tags %}
-                                                    <a {% if request.GET.tag == tag.pk|stringformat:'i' %} style="color: white;background-color: black"{% endif %} href="?tag={{ tag.pk }}">{{ tag.title }}</a>
+                                                    <a {% if request.GET.tag == tag.pk|stringformat:'i' %} style="color: white;background-color: black"{% endif %} onclick="Parameter('tag', '{{ tag.pk }}')">{{ tag.title }}</a>
                                                 {% endfor %}
                                             </div>
                                         </div>

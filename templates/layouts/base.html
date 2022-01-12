@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+    {% block extra_css %} {% endblock %}
 </head>
 
 <body>
@@ -43,6 +44,16 @@
     <!-- Footer Section Begin -->
         {% include 'layouts/footer.html' %}
     <!-- Footer Section End -->
+    <!---- Search ---------->
+    <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch">+</div>
+            <form action="{% url 'product:lists' %}" class="search-model-form">
+                <input name="q" type="text" id="search-input" placeholder="Search here...">
+            </form>
+        </div>
+    </div>
+     <!---- Search ---------->
 
     <!-- Js Plugins -->
     <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
@@ -55,6 +66,7 @@
     <script src="{% static 'js/mixitup.min.js' %}"></script>
     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
+    {% block extra_js %} {% endblock %}
 </body>
 
 </html>
