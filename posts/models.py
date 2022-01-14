@@ -1,48 +1,48 @@
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
-
+from django.utils.translation import ugettext_lazy as _
 
 # Create your models here.
 
 
 class AuthorModel(models.Model):
-    name = models.CharField(max_length=50)
-    avatar = models.ImageField(upload_to='authors')  # upload to papka yartadi nomiga qarab
-    created_at = models.DateTimeField(auto_now_add=True)
+    name = models.CharField(max_length=50, verbose_name=_('name'))
+    avatar = models.ImageField(upload_to='authors', verbose_name=_('avatar'))  # upload to papka yartadi nomiga qarab
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
 
     def __str__(self):
         return self.name
 
     class Meta:
-        verbose_name = 'author'
-        verbose_name_plural = 'authors'
+        verbose_name = _('author')
+        verbose_name_plural = _('authors')
 
 
 # -------------------------------------------------------
 
 class TagModel(models.Model):
-    title = models.CharField(max_length=30)
-    created_at = models.DateTimeField(auto_now_add=True)
+    title = models.CharField(max_length=30, verbose_name=_('title'))
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
 
     def __str__(self):
         return self.title
 
     class Meta:
-        verbose_name = 'tag'
-        verbose_name_plural = 'tags'
+        verbose_name = _('tag')
+        verbose_name_plural = _('tags')
 
 
 # ______________________________________________
 
 
 class PostModel(models.Model):
-    title = models.CharField(max_length=400)
-    image = models.ImageField(upload_to='posts')
-    banner = models.ImageField(upload_to='post_banner')
-    content = RichTextUploadingField()  # RichText Fild hali ustanovka bomagan
-    author = models.ForeignKey(AuthorModel, on_delete=models.PROTECT, related_name='posts')
-    tags = models.ManyToManyField(TagModel, related_name='posts')  # ManyTomanyField on_delete varyant yo'q
-    created_at = models.DateTimeField(auto_now_add=True)
+    title = models.CharField(max_length=400, verbose_name=_('title'))
+    image = models.ImageField(upload_to='posts', verbose_name=_('image'))
+    banner = models.ImageField(upload_to='post_banner', verbose_name=_('banner'))
+    content = RichTextUploadingField(verbose_name=_('content'))  # RichText Fild hali ustanovka bomagan
+    author = models.ForeignKey(AuthorModel, on_delete=models.PROTECT, related_name='posts', verbose_name=_('author'))
+    tags = models.ManyToManyField(TagModel, related_name='posts', verbose_name=_('tags'))  # ManyTomanyField on_delete varyant yo'q
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
 
     def get_prev(self):
         return self.get_previous_by_created_at()
@@ -54,5 +54,5 @@ class PostModel(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = 'post'
-        verbose_name_plural = 'posts'
+        verbose_name = _('post')
+        verbose_name_plural = _('posts')
