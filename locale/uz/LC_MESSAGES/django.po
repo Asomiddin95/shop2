@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-14 17:48+0500\n"
-"PO-Revision-Date: 2022-01-14 19:03+0500\n"
+"POT-Creation-Date: 2022-01-15 11:36+0500\n"
+"PO-Revision-Date: 2022-01-15 11:41+0500\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "Language: uz\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"Last-Translator: \n"
-"Language-Team: \n"
 "X-Generator: Poedit 3.0\n"
 
 #: pages/apps.py:8
@@ -35,7 +35,8 @@ msgid "message"
 msgstr "xabar"
 
 #: pages/models.py:11 posts/models.py:11 posts/models.py:25 posts/models.py:45
-#: product/models.py:27 product/models.py:39 product/models.py:62
+#: product/models.py:27 product/models.py:39 product/models.py:51
+#: product/models.py:63 product/models.py:88
 msgid "created_at"
 msgstr "qo'shilgan vaqt"
 
@@ -64,7 +65,7 @@ msgid "authors"
 msgstr "mualiflar"
 
 #: posts/models.py:24 posts/models.py:39 product/models.py:26
-#: product/models.py:38 product/models.py:50
+#: product/models.py:38 product/models.py:74
 msgid "title"
 msgstr "sarlavha"
 
@@ -73,11 +74,11 @@ msgid "tag"
 msgstr "teg"
 
 #: posts/models.py:32 posts/models.py:44 product/models.py:46
-#: product/models.py:61
+#: product/models.py:87
 msgid "tags"
 msgstr "teglar"
 
-#: posts/models.py:40 product/models.py:51
+#: posts/models.py:40 product/models.py:75
 msgid "image"
 msgstr "rasm"
 
@@ -95,9 +96,9 @@ msgstr "post"
 
 #: product/apps.py:8
 msgid "product"
-msgstr "mahsululotlar"
+msgstr "mahsulotlar"
 
-#: product/models.py:21 product/models.py:54
+#: product/models.py:21 product/models.py:78
 msgid "category"
 msgstr "toifasi"
 
@@ -105,7 +106,7 @@ msgstr "toifasi"
 msgid "categorys"
 msgstr "toifalar"
 
-#: product/models.py:33 product/models.py:53
+#: product/models.py:33 product/models.py:77
 msgid "brand"
 msgstr "brand"
 
@@ -113,19 +114,35 @@ msgstr "brand"
 msgid "brands"
 msgstr "brandlar"
 
-#: product/models.py:52
+#: product/models.py:50 product/models.py:57 product/models.py:58
+msgid "size"
+msgstr "razmer"
+
+#: product/models.py:62
+msgid "code"
+msgstr "codlar"
+
+#: product/models.py:69
+msgid "color"
+msgstr "ranglar"
+
+#: product/models.py:70
+msgid "colors"
+msgstr "ranglar"
+
+#: product/models.py:76
 msgid "price"
 msgstr "narx"
 
-#: product/models.py:57
+#: product/models.py:81
 msgid "discount"
 msgstr "chegirma"
 
-#: product/models.py:59
+#: product/models.py:83
 msgid "short_description"
 msgstr "qisqa_tarif"
 
-#: product/models.py:60
+#: product/models.py:84
 msgid "long_description"
 msgstr "to'liq_ta'rif"
 
@@ -141,31 +158,69 @@ msgstr "Ruscha"
 msgid "English"
 msgstr "Inglizcha"
 
-#: templates/layouts/header.html:7 templates/layouts/header.html:43
+#: templates/contact.html:17
+msgid ""
+"\n"
+"                            <span>Information</span>\n"
+"                            <h2>Contact Us</h2>\n"
+"                            <p>As you might expect of a company that began "
+"as a high-end interiors contractor, we pay\n"
+"                                strict attention.</p>\n"
+"                        </div>\n"
+"                        <ul>\n"
+"                            <li>\n"
+"                                <h4>America</h4>\n"
+"                                <p>195 E Parker Square Dr, Parker, CO 801 "
+"<br />+43 982-314-0958</p>\n"
+"                            </li>\n"
+"                            <li>\n"
+"                                <h4>France</h4>\n"
+"                                <p>109 Avenue Léon, 63 Clermont-Ferrand <br /"
+">+12 345-423-9893</p>\n"
+"                            </li>\n"
+"                        </ul>\n"
+"                        "
+msgstr ""
+
+#: templates/contact.html:42
+msgid "Name"
+msgstr "Ismi"
+
+#: templates/contact.html:48
+msgid "Message"
+msgstr "Xabar"
+
+#: templates/contact.html:49
+#, fuzzy
+#| msgid "Message"
+msgid "Send Message"
+msgstr "Xabar"
+
+#: templates/layouts/header.html:8 templates/layouts/header.html:52
 msgid "Sign in"
 msgstr "Tizmiga kirish"
 
-#: templates/layouts/header.html:8 templates/layouts/header.html:44
+#: templates/layouts/header.html:9 templates/layouts/header.html:53
 msgid "FAQs"
 msgstr ""
 
-#: templates/layouts/header.html:69
+#: templates/layouts/header.html:87
 msgid "Home"
 msgstr "Asosiy"
 
-#: templates/layouts/header.html:74
+#: templates/layouts/header.html:92
 msgid "Products"
 msgstr "Mahsulotlar"
 
-#: templates/layouts/header.html:78
+#: templates/layouts/header.html:96
 msgid "Blog"
 msgstr ""
 
-#: templates/layouts/header.html:83
+#: templates/layouts/header.html:101
 msgid "About"
 msgstr "Biz-haqmizda"
 
-#: templates/layouts/header.html:88
+#: templates/layouts/header.html:106
 msgid "Contact"
 msgstr "Aloqa"
 
@@ -175,30 +230,32 @@ msgstr ""
 
 #: templates/registration/activate.html:7
 msgid "Account activation failed."
-msgstr ""
+msgstr "Hisobingiz endi faollashtirildi."
 
 #: templates/registration/activation_complete.html:4
 #: templates/registration/activation_complete_admin_pending.html:4
 msgid "Account Activated"
-msgstr ""
+msgstr "Hisob faollashtirildi"
 
 #: templates/registration/activation_complete.html:8
 #: templates/registration/activation_complete_admin_pending.html:8
 msgid "Your account is now activated."
-msgstr ""
+msgstr "Hisobingiz endi faollashtirildi."
 
 #: templates/registration/activation_complete.html:10
 msgid "You can log in."
-msgstr ""
+msgstr "kirish mumkin."
 
 #: templates/registration/activation_complete_admin_pending.html:10
 msgid "Once a site administrator activates your account you can login."
 msgstr ""
+"Sayt ma'muri hisobingizni faollashtirgandan so'ng siz tizimga kirishingiz "
+"mumkin."
 
 #: templates/registration/activation_email.html:6
 #: templates/registration/admin_approve_email.html:6
 msgid "registration"
-msgstr ""
+msgstr "ro'yxatdan o'tish"
 
 #: templates/registration/activation_email.html:11
 #, python-format
@@ -210,6 +267,13 @@ msgid ""
 "    and your address will be removed from our records.\n"
 "    "
 msgstr ""
+"\n"
+"Siz (yoki o'zingizni o'zingizni ko'rsatayotgan odam) hisob qaydnomasini "
+"ro'yxatdan o'tkazishni so'ragansiz\n"
+"    %(site_name)s. Agar bu siz bo'lmagan bo'lsangiz, iltimos ushbu elektron "
+"pochtani e'tiborsiz qoldiring\n"
+"    va sizning manzilingiz bizning yozuvlarimizdan olib tashlanadi.\n"
+"    "
 
 #: templates/registration/activation_email.html:18
 #, python-format
@@ -220,6 +284,11 @@ msgid ""
 "    %(expiration_days)s days:\n"
 "    "
 msgstr ""
+"\n"
+"Ushbu hisobni faollashtirish uchun, iltimos, keyingi bo'ylab quyidagi "
+"havolani bosing\n"
+"    %(expiration_days)s kunlari:\n"
+"    "
 
 #: templates/registration/activation_email.html:30
 #: templates/registration/admin_approve_email.html:23
@@ -424,8 +493,7 @@ msgstr ""
 msgid ""
 "\n"
 "You are receiving this email because you (or someone pretending to be you)\n"
-"requested that your password be reset on the %(domain)s site. If you do "
-"not\n"
+"requested that your password be reset on the %(domain)s site. If you do not\n"
 "wish to reset your password, please ignore this message.\n"
 msgstr ""
 

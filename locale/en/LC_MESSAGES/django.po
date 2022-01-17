@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-01-14 17:48+0500\n"
+"POT-Creation-Date: 2022-01-15 11:36+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,7 +35,8 @@ msgid "message"
 msgstr ""
 
 #: pages/models.py:11 posts/models.py:11 posts/models.py:25 posts/models.py:45
-#: product/models.py:27 product/models.py:39 product/models.py:62
+#: product/models.py:27 product/models.py:39 product/models.py:51
+#: product/models.py:63 product/models.py:88
 msgid "created_at"
 msgstr ""
 
@@ -64,7 +65,7 @@ msgid "authors"
 msgstr ""
 
 #: posts/models.py:24 posts/models.py:39 product/models.py:26
-#: product/models.py:38 product/models.py:50
+#: product/models.py:38 product/models.py:74
 msgid "title"
 msgstr ""
 
@@ -73,11 +74,11 @@ msgid "tag"
 msgstr ""
 
 #: posts/models.py:32 posts/models.py:44 product/models.py:46
-#: product/models.py:61
+#: product/models.py:87
 msgid "tags"
 msgstr ""
 
-#: posts/models.py:40 product/models.py:51
+#: posts/models.py:40 product/models.py:75
 msgid "image"
 msgstr ""
 
@@ -97,7 +98,7 @@ msgstr ""
 msgid "product"
 msgstr ""
 
-#: product/models.py:21 product/models.py:54
+#: product/models.py:21 product/models.py:78
 msgid "category"
 msgstr ""
 
@@ -105,7 +106,7 @@ msgstr ""
 msgid "categorys"
 msgstr ""
 
-#: product/models.py:33 product/models.py:53
+#: product/models.py:33 product/models.py:77
 msgid "brand"
 msgstr ""
 
@@ -113,19 +114,35 @@ msgstr ""
 msgid "brands"
 msgstr ""
 
-#: product/models.py:52
+#: product/models.py:50 product/models.py:57 product/models.py:58
+msgid "size"
+msgstr ""
+
+#: product/models.py:62
+msgid "code"
+msgstr ""
+
+#: product/models.py:69
+msgid "color"
+msgstr ""
+
+#: product/models.py:70
+msgid "colors"
+msgstr ""
+
+#: product/models.py:76
 msgid "price"
 msgstr ""
 
-#: product/models.py:57
+#: product/models.py:81
 msgid "discount"
 msgstr ""
 
-#: product/models.py:59
+#: product/models.py:83
 msgid "short_description"
 msgstr ""
 
-#: product/models.py:60
+#: product/models.py:84
 msgid "long_description"
 msgstr ""
 
@@ -141,31 +158,67 @@ msgstr ""
 msgid "English"
 msgstr ""
 
-#: templates/layouts/header.html:7 templates/layouts/header.html:43
+#: templates/contact.html:17
+msgid ""
+"\n"
+"                            <span>Information</span>\n"
+"                            <h2>Contact Us</h2>\n"
+"                            <p>As you might expect of a company that began "
+"as a high-end interiors contractor, we pay\n"
+"                                strict attention.</p>\n"
+"                        </div>\n"
+"                        <ul>\n"
+"                            <li>\n"
+"                                <h4>America</h4>\n"
+"                                <p>195 E Parker Square Dr, Parker, CO 801 "
+"<br />+43 982-314-0958</p>\n"
+"                            </li>\n"
+"                            <li>\n"
+"                                <h4>France</h4>\n"
+"                                <p>109 Avenue Léon, 63 Clermont-Ferrand <br /"
+">+12 345-423-9893</p>\n"
+"                            </li>\n"
+"                        </ul>\n"
+"                        "
+msgstr ""
+
+#: templates/contact.html:42
+msgid "Name"
+msgstr ""
+
+#: templates/contact.html:48
+msgid "Message"
+msgstr ""
+
+#: templates/contact.html:49
+msgid "Send Message"
+msgstr ""
+
+#: templates/layouts/header.html:8 templates/layouts/header.html:52
 msgid "Sign in"
 msgstr ""
 
-#: templates/layouts/header.html:8 templates/layouts/header.html:44
+#: templates/layouts/header.html:9 templates/layouts/header.html:53
 msgid "FAQs"
 msgstr ""
 
-#: templates/layouts/header.html:69
+#: templates/layouts/header.html:87
 msgid "Home"
 msgstr ""
 
-#: templates/layouts/header.html:74
+#: templates/layouts/header.html:92
 msgid "Products"
 msgstr ""
 
-#: templates/layouts/header.html:78
+#: templates/layouts/header.html:96
 msgid "Blog"
 msgstr ""
 
-#: templates/layouts/header.html:83
+#: templates/layouts/header.html:101
 msgid "About"
 msgstr ""
 
-#: templates/layouts/header.html:88
+#: templates/layouts/header.html:106
 msgid "Contact"
 msgstr ""
 

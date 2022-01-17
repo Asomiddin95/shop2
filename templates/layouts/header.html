@@ -90,7 +90,8 @@
                         <li {% if request.path == '/product/' %}class="active"{% endif %}>
                             <a
                                     href="{% url 'product:lists' %}">{% trans 'Products' %}
-                            </a></li>
+                            </a>
+                        </li>
                         <li {% if request.path == 'blog' %}class="active"{% endif %}>
                             <a
                                     href="{% url 'posts:list' %}">{% trans 'Blog' %}

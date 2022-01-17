@@ -44,6 +44,9 @@ class PostModel(models.Model):
     tags = models.ManyToManyField(TagModel, related_name='posts', verbose_name=_('tags'))  # ManyTomanyField on_delete varyant yo'q
     created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
 
+    def get_comments(self):
+        return self.comments.order_by('-created_at')
+
     def get_prev(self):
         return self.get_previous_by_created_at()
 
@@ -56,3 +59,25 @@ class PostModel(models.Model):
     class Meta:
         verbose_name = _('post')
         verbose_name_plural = _('posts')
+
+
+class CommentModel(models.Model):
+    post = models.ForeignKey(
+        PostModel,
+        related_name='comments',
+        on_delete=models.CASCADE,
+        verbose_name=_('post'))
+    name = models.CharField(max_length=30, verbose_name=_('name'))
+    email = models.EmailField(verbose_name=_('email'))
+    phone = models.CharField(max_length=15, blank=True, null=True, verbose_name=_('phone'))
+    comment = models.TextField(verbose_name=_('comment'))
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('created_at'))
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = _('comment')
+        verbose_name_plural = _('comments')
+
+

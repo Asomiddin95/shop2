@@ -1,13 +1,16 @@
 {% extends 'layouts/base.html' %}
 {% load static %}
+{% load my_tags %}
 {% block content %}
     {% block extra_css %}
         <style>
-        a:hover {
-            cursor: pointer;
-        }
+            a:hover {
+                cursor: pointer;
+            }
         </style>
-        {% endblock %}
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css"/>
+    {% endblock %}
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-option">
         <div class="container">
@@ -31,23 +34,28 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
-                   {% include 'layouts/shop.filter.html' %}
+                    {% include 'layouts/shop.filter.html' %}
                 </div>
                 <div class="col-lg-9">
                     <div class="shop__product__option">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="shop__product__option__left">
-                                    <p>Showing {{ page_obj.start_index }}-{{ page_obj.end_index }} of {{ page_obj.paginator.count }}</p>
+                                    <p>Showing {{ page_obj.start_index }}-{{ page_obj.end_index }}
+                                        of {{ page_obj.paginator.count }}</p>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="shop__product__option__right">
                                     <p>Sort by Price:</p>
                                     <select onchange="Parameter('sort',this.value)">
-                                    <option value="">----</option>
-                                        <option {% if request.GET.sort == 'price' %}selected{% endif %} value="price">Low To High</option>
-                                        <option {% if request.GET.sort == '-price' %}selected{% endif %} value="-price">High To Low</option>
+                                        <option value="">----</option>
+                                        <option {% if request.GET.sort == 'price' %}selected{% endif %} value="price">
+                                            Low To High
+                                        </option>
+                                        <option {% if request.GET.sort == '-price' %}selected{% endif %} value="-price">
+                                            High To Low
+                                        </option>
 
                                     </select>
                                 </div>
@@ -68,7 +76,9 @@
                                         <ul class="product__hover">
                                             <li><a href=""><img src="{% static 'img/icon/heart.png' %}" alt=""></a>
                                             </li>
-                                            <li><a href="#"><img src="{% static 'img/icon/search.png' %}" alt=""></a>
+                                            <li>
+                                                <a href="{% url 'products:detail' pk=product.pk %}"><img
+                                                        src="{% static 'img/icon/search.png' %}" alt=""></a>
                                             </li>
                                         </ul>
                                     </div>
@@ -82,21 +92,17 @@
                                             <i class="fa fa-star-o"></i>
                                             <i class="fa fa-star-o"></i>
                                         </div>
-                                        <h5>{{ product.get_price }}
+                                        <h5>{{ product.real_price }}
                                             {% if product.is_discount %}
                                                 <strike class="btn btn-danger small">{{ product.price }}</strike>
                                             {% endif %}
                                         </h5>
                                         <div class="product__color__select">
-                                            <label for="pc-4">
-                                                <input type="radio" id="pc-4">
-                                            </label>
-                                            <label class="active black" for="pc-5">
-                                                <input type="radio" id="pc-5">
-                                            </label>
-                                            <label class="grey" for="pc-6">
-                                                <input type="radio" id="pc-6">
-                                            </label>
+                                            {% for color in product.colors.all %}
+                                                <label style="background: {{ color.code }}">
+                                                    <input type="radio">
+                                                </label>
+                                            {% endfor %}
                                         </div>
                                     </div>
                                 </div>
@@ -107,7 +113,8 @@
                         <div class="col-lg-12">
                             <div class="product__pagination">
                                 {% for page in page_obj.paginator.page_range %}
-                                <a {% if page == page_obj.number %}class="active"{% endif %} onclick="Parameter('page','{{ page }}')">{{ page }}</a>
+                                    <a {% if page == page_obj.number %}class="active"{% endif %}
+                                       onclick="Parameter('page','{{ page }}')">{{ page }}</a>
                                 {% endfor %}
                             </div>
                         </div>
@@ -120,15 +127,32 @@
 {% endblock %}
 {% block extra_js %}
     <script>
-    function Parameter(name,value) {
-        let searchParams = new URLSearchParams(window.location.search)
-        if (searchParams.has(name) && searchParams.get(name)===value) {
-            searchParams.delete(name)
+        function Parameter(name, value) {
+            let searchParams = new URLSearchParams(window.location.search)
+            if (searchParams.has(name) && searchParams.get(name) === value) {
+                searchParams.delete(name)
 
-        } else {
-            searchParams.set(name,value)
+            } else {
+                searchParams.set(name, value)
+            }
+            window.location.search = searchParams.toString()
         }
-        window.location.search = searchParams.toString()
-    }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"></script>
+    <script>
+            $(".js-range-slider").ionRangeSlider({
+        type: "double",
+        grid: true,
+        min: {{ min_price }},
+        max: {{ max_price }},
+        from: {% get_price_url request 0 %},
+        to: {% get_price_url request 1 %},
+        prefix: "$",
+        onFinish(data) {
+            let result = data.from.toString() + ';' + data.to.toString();
+            Parameter('price',result)
+        }
+    });
+
     </script>
 {% endblock %}

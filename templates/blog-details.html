@@ -11,7 +11,7 @@
                         <ul>
                             <li>{{ object.author }}</li>
                             <li>{{ object.created_at|date:'F d, Y' }}</li>
-                            <li>8 Comments</li>
+                            <li>{{ object.comments.count }}</li>
                         </ul>
                     </div>
                 </div>
@@ -62,13 +62,13 @@
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <div class="blog__details__tags">
                                         {% for tag in object.tags.all %}
-                                        <a href="{% url 'posts:list' %}?tag={{ tag.title }}">{{ tag.title }}</a>
+                                        <a href="{% url 'posts:list' %}?tag={{ tag.title }}">#{{ tag.title }}</a>
                                         {% endfor %}
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="blog__details__btns">
+                        <div id="comment-section" class="blog__details__btns">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     {% if object.get_prev %}
@@ -88,25 +88,49 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="blog__details__comment">
                             <h4>Leave A Comment</h4>
-                            <form action="#">
+                            <form method="POST" action="{% url 'posts:comment' pk=object.pk %}#comment-section">
+                                {% csrf_token %}
                                 <div class="row">
                                     <div class="col-lg-4 col-md-4">
-                                        <input type="text" placeholder="Name">
+                                        <input name="name" type="text" placeholder="Name">
                                     </div>
                                     <div class="col-lg-4 col-md-4">
-                                        <input type="text" placeholder="Email">
+                                        <input name="email" type="email" placeholder="Email">
                                     </div>
-                                    <div class="col-lg-4 col-md-4">
-                                        <input type="text" placeholder="Phone">
-                                    </div>
+{#                                    <div class="col-lg-4 col-md-4">#}
+{#                                        <input name="phone" type="text" placeholder="Phone">#}
+{#                                    </div>#}
                                     <div class="col-lg-12 text-center">
-                                        <textarea placeholder="Comment"></textarea>
+                                        <textarea name="comment" placeholder="Comment"></textarea>
                                         <button type="submit" class="site-btn">Post Comment</button>
                                     </div>
                                 </div>
                             </form>
+                        </div>
+                    <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <ul>
+                                    {% for comment in object.get_comments %}
+                                        <hr>
+                                        <li class="media">
+                                            <div class="media-body">
+                                                <span class="text-muted pull-right">
+                                                    <small class="text-muted">
+                                                        {{ comment.created_at|timesince }}
+                                                    </small>
+                                                </span>
+                                                <strong>{{ comment.name }}</strong>
+                                                <p>
+                                                    {{ comment.comment }}
+                                                </p>
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
